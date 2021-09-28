@@ -61,8 +61,4 @@ export class ContentComponent implements OnInit, OnChanges {
       .pipe(take(1))
       .subscribe(() => this.autosize?.resizeToFitContent(true));
   }
-
-  open(event: string) {
-    console.log(event);
-  }
 }
