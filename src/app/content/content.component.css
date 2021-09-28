@@ -1,0 +1,36 @@
+textarea {
+  font-size: 18.75px;
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  resize: none;
+  outline: none;
+  border-radius: 5px;
+  background-color: #99FFFF;
+  white-space: normal;
+    text-align: justify;
+}
+
+.mat-input-element {
+  background: white;
+}
+
+.content {
+  background-color: #673ab7;
+  padding: 10px;
+  border-radius: 5px;
+}
+.mat-form-field-underline {
+  width: 0%;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}

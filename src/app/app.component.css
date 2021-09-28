@@ -1,0 +1,10 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  
+
+  .cardStyle{
+      padding: 20px;
+      margin: 10px;
+      background-color: gainsboro
+  }
