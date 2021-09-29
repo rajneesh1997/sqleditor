@@ -30,6 +30,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Page Load Time
 
 Using
--Chrome DevTools - Load: 1.43 s
--gtmetrix.com - Load 1.5 s
--tools.pingdom.com - Load 936 ms
+-Chrome DevTools [Load: 1.43 s]
+-gtmetrix.com [Load 1.5 s]
+-tools.pingdom.com [Load 936 ms]
