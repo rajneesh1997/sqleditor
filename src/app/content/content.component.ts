@@ -48,13 +48,7 @@ export class ContentComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    this.table.getInfo('customers').subscribe((data: any) => {
-      data = Papa.parse(data);
-      this.headers = data.data[0];
-      this.rows = data.data.filter((element: any, index: number) => {
-        if (index != 0) return element;
-      });
-    });
+    
   }
 
   @ViewChild('autosize') autosize: CdkTextareaAutosize | undefined;
