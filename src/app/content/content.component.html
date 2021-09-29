@@ -1,56 +1,72 @@
 <div
   class="content"
   fxLayout="column"
-  fxLayoutGap="2px"
+  fxLayoutGap="10px"
   fxLayoutAlign="space-evenly none"
 >
   <!-- Editor Part  -->
-  <div class="editor" fxFlex="20">
-    <h1 style="margin: 0px">SQL Editor v1.0</h1>
-    <div fxLayout="column" fxFill>
-      <mat-form-field style="margin: 0px">
-        <textarea
-          style="margin: 0px"
-          matInput
-          cdkTextareaAutosize
-          #autosize="cdkTextareaAutosize"
-          cdkAutosizeMinRows="2"
-          cdkAutosizeMaxRows="2"
-          value={{query}}
-        ></textarea>
-      </mat-form-field>
-      <p>Click on "Run SQL" to see the result</p>
-      <div fxLayout="center">
-        <button mat-raised-button color="accent">Run SQL</button>
+  <div class="editor">
+    <div fxLayout="column" fxFill fxLayoutGap="15px">
+      <div><h1 style="margin: 0px">SQL Statement</h1></div>
+      <textarea
+        id="searchquery"
+        matInput
+        cdkTextareaAutosize
+        #autosize="cdkTextareaAutosize"
+        cdkAutosizeMinRows="2"
+        cdkAutosizeMaxRows="2"
+        value="{{ query }}"
+        placeholder="Try 'Select * from Categories'"
+      ></textarea>
+      <div>
+        <button
+          (click)="searchQuery()"
+          matTooltip="Try 'Select&nbsp;&nbsp;*&nbsp;&nbsp;from&nbsp;&nbsp;Categories'"
+          matTooltipPosition="right"
+          mat-raised-button
+        >
+          Run SQL
+        </button>
       </div>
     </div>
   </div>
 
   <!-- Result Part  -->
-  <div fxFlex="80">
-    <h1 style="margin: 0px">Result:</h1>
-    <div *ngIf="data==''" fxLayout="column" fxFill>
+  <div class="Result">
+    <div *ngIf="data == ''" fxLayout="column" fxFill>
       <mat-form-field style="margin: 0px">
         <textarea
-          style="margin: 0px"
           matInput
           cdkTextareaAutosize
           #autosize="cdkTextareaAutosize"
-          cdkAutosizeMinRows="12"
-          cdkAutosizeMaxRows="12"
+          cdkAutosizeMinRows="15"
+          cdkAutosizeMaxRows="15"
           disabled
           value="Query results appear here."
         ></textarea>
       </mat-form-field>
     </div>
 
-    <div *ngIf="data!=''" style="overflow-y: scroll; height: 290px">
-      <table *ngIf="data!=''" border="" style="background-color: white; table-layout: fixed;">
+    <div
+      *ngIf="data != ''"
+      style="
+        overflow-y: scroll;
+        height: 360px;
+        flex: 1;
+        overflow-x: scroll;
+        background-color: white;
+      "
+    >
+      <table *ngIf="data != ''" border="" style="background-color: white">
         <thead>
           <tr>
             <th
               *ngFor="let header of headers"
-              style="word-wrap: break-word;position: sticky; top: 0;background: white;"
+              style="
+                position: sticky;
+                top: 0;
+                background: white;
+              "
             >
               {{ header }}
             </th>
@@ -58,7 +74,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let record of rows">
-            <td *ngFor="let item of record" style="word-wrap: break-word">
+            <td *ngFor="let item of record">
               {{ item }}
             </td>
           </tr>

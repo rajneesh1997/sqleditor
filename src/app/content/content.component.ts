@@ -6,6 +6,8 @@ import {
   ViewEncapsulation,
   Input,
   OnChanges,
+  Output,
+  EventEmitter
 } from '@angular/core';
 import { take } from 'rxjs/operators';
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
@@ -23,6 +25,8 @@ export class ContentComponent implements OnInit, OnChanges {
   query: any = '';
 
   constructor(private _ngZone: NgZone, private table: TablesService) {}
+
+  @Output() newItemEvent = new EventEmitter<string>();
 
   @Input() data: string | undefined;
 
@@ -60,5 +64,10 @@ export class ContentComponent implements OnInit, OnChanges {
     this._ngZone.onStable
       .pipe(take(1))
       .subscribe(() => this.autosize?.resizeToFitContent(true));
+  }
+
+  searchQuery(){
+    this.query = (<HTMLInputElement>document.getElementById('searchquery'))?.value;
+    this.newItemEvent.emit(this.query);
   }
 }

@@ -14,6 +14,9 @@ import { ContentComponent } from './content/content.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatRippleModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [AppComponent, ContentComponent],
@@ -30,7 +33,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTooltipModule,
+    MatDividerModule,
+    MatRippleModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

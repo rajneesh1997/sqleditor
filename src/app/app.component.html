@@ -1,22 +1,30 @@
-<p>
+<h1>
   <mat-toolbar color="primary">
     <span>SQL EDITOR</span>
   </mat-toolbar>
-</p>
+</h1>
 
-<mat-card class="cardStyle" style="height: 80%">
+<mat-card class="cardStyle">
   <mat-drawer-container class="example-container">
     <mat-drawer mode="side" opened style="width: 17%"
-      ><h1>Database</h1>
+      ><h1 style="margin: 10px; text-align: center">Database</h1>
       <mat-list role="list">
         <div *ngFor="let table of tables">
-          <mat-list-item style="cursor: pointer;" role="listitem" (click)="tableSelected(table)">{{
-            table
-          }}</mat-list-item>
+          <mat-list-item
+            matRipple
+            style="cursor: pointer"
+            role="listitem"
+            (click)="tableSelected(table)"
+            >{{ table }}</mat-list-item
+          >
         </div>
       </mat-list>
     </mat-drawer>
     <mat-drawer-content
-      ><app-content [data]=data></app-content></mat-drawer-content>
+      ><app-content
+        [data]="data"
+        (newItemEvent)="searchQuery($event)"
+      ></app-content
+    ></mat-drawer-content>
   </mat-drawer-container>
 </mat-card>
